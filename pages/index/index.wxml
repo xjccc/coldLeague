@@ -1,0 +1,45 @@
+<import src="../../components/loading/loading.wxml"/>
+<template is="loading" data="{{loading}}"/>
+<!-- 显示声明 -->
+<view class="statement" bindtap="showStatement"></view>
+<view class="stateBack" wx:if="{{showStatement}}" bindtap="cancleStatement"></view>
+<view class="stateContent" wx:if="{{showStatement}}">
+  <view class="stateMsg">
+    <view class="stateTitle">极速配万人群只提供信息发布查看渠道，不对信息的真实性承担法律责任，请谨慎交易！</view>
+    <view class="stateConcat">如遇虚假信息，请联系客服举报：<text class="statePhone" bindtap="callToUs">15010638696</text></view>
+  </view>
+  <view class="stateCancle" bindtap="cancleStatement">取消</view>
+</view>
+<view class="container">
+  <!-- 加载 -->
+  <view class="loading-more" hidden="{{loadMore}}">
+    <image src="../../images/loading.gif" class="loadingImg" />
+  </view>
+  <!-- 滚动视图 -->
+  <scroll-view scroll-y="{{scrollStatus}}" class="content" style="height:100%" scroll-into-view="{{lastMessageId}}" bindscrolltoupper="toUpper" upper-threshold="50">
+    <view class="noMore" wx:if="{{end}}">没有更多了~</view>
+    <view class="item {{mineUid == message.open_id ? 'mine' : 'default'}}" wx:for="{{messages}}" wx:key="id" wx:for-item="message" id="item_{{message.id}}">
+      <view class="showTime">{{message.add_time}}</view>
+      <image class="avatar" src="{{message.user_photo}}" bindtap="jumpToUserCenter" data-nickname="{{message.user_name}}" data-avatar="{{message.user_photo}}" data-unionid="{{message.unionId}}" data-openid="{{message.open_id}}" />
+      <view class="nickname" wx:if="{{mineUid != message.open_id}}">
+        <text>{{message.user_name}}</text>
+      </view>
+      <view class="item-content">
+        <text class="item-text" selectable>{{message.user_content}}</text>
+        <view wx:for="{{message.phone_num[0]}}" class="item-phone" data-item="{{item}}" data-content="{{message.user_content}}"
+        data-id="{{message.id}}" bindtap="makePhoneCall">{{item}}</view>
+        <view>联系我时，请说明是在极速配万人发货群看到的，谢谢！</view>
+      </view>
+    </view>
+    <view id="maxlength" style="height:100rpx;"></view>
+  </scroll-view>
+  <view class="footer" wx:if="{{type == '2'}}">
+    <image class="footer-avatar" src="{{userInfo.avatarUrl}}" bindtap="jumpToMineCenter" />
+    <view class="textarea" bindtap="goodsToEdit">输入货源信息</view>
+    <button class="submit search" bindtap="showTheSelectCity">搜索货源</button>
+  </view>
+  <view wx:else class="footer"  bindtap="showTheSelectCity">
+    <view class="textarea">搜索货源信息</view>
+    <button class="submit search">搜索货源</button>
+  </view>
+</view>

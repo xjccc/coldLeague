@@ -1,0 +1,38 @@
+@import "../../components/showTips/index.wxss";
+.form{
+  padding-top: 40rpx;
+}
+.textarea{
+  width: 600rpx;
+  height: 600rpx;
+  margin:40rpx auto;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+.placeholder{
+  position: absolute;
+  top: 80rpx;
+  left: 80rpx;
+  padding: 20rpx;
+}
+.placeholder text{
+  display: block;
+  color: #999;
+}
+.EditTips{
+  padding: 30rpx 80rpx;
+  font-size: 28rpx;
+  color: #999;
+  margin-top: 150rpx;
+}
+.submit{
+  padding:0 14rpx;
+  margin: 40rpx;
+  margin-left: 120rpx;
+  margin-right: 120rpx;
+  background: #09BB07;
+  color: #fff;
+  letter-spacing: 10rpx;
+  text-indent: 10rpx;
+}

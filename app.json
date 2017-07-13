@@ -1,0 +1,15 @@
+{
+  "pages":[
+    "pages/selectUser/selectUser",
+    "pages/index/index",
+    "pages/userCenter/userCenter",
+    "pages/add/add",
+    "pages/selectCity/selectCity"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "冷藏联盟万人群",
+    "navigationBarTextStyle":"white"
+  }
+}
