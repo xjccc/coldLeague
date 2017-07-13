@@ -98,7 +98,7 @@ Page({
     if (app.load) return
     this.loadMore()
   },
-  carType (type) {
+  carType (type) {  // 储存用户身份
     wx.request({
       url:app.ajaxurl,
       data:{
