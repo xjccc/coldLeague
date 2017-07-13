@@ -203,7 +203,7 @@ data:[
 
 ```
 data:{
-  c:'carnewapi',
+  c:'carrefrigerateapi',
   m:'getcitycargolist',
   provinceId:that.data.provinceId,   // 省份id
   page:that.data.page,     // 请求页数
